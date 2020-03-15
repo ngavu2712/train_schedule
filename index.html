@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Train Schedule</title>
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+   <!-- Link BootStrap to the HTML -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+
+  <!-- SDKs for Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+
+  <!-- Link to Moment.js-->
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+
+  <!-- Adding Media Query to make the page mobile responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+  <!-- Link to style.css -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body style="background-image:url(assets/images/landscape.jpg)">
+    
+    
+    
+    <!-- Introduction-->
+<div id="firstRow" style="background-image:url(assets/images/moutainrange.jpeg); opacity: 0.8;">
+    <h1 id="orientExp">Winter Express</h1>
+</div>
+
+<div id="total" class="container">
+    <div class="row">
+      <div class="col-sm-4">
+
+        <!-- Schedule a train -->
+            <h4 style="background-color: #ffc106;">Add Train</h4>
+            
+            <!-- Train Name -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Train Name</span>
+                </div>
+                    <input id="searchbox" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder ="Name" >
+            </div>  
+    
+            <!-- Destination -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Destination</span>
+                </div>
+                    <input id="searchbox" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder ="Where To" >
+            </div> 
+    
+            <!-- Train Time -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Train Time</span>
+                </div>
+                    <input id="searchbox" type="militarytime" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder ="HH:mm" >
+            </div> 
+    
+            <!-- Frequency -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Frequency (min)</span>
+                </div>
+                    <input id="searchbox" type="frequency" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div> 
+            <button type="button" class="btn btn-warning">Submit</button>
+        </div>
+     
+   
+        
+        <div class="col-sm-8">
+            
+                <h4 style="background-color:#ffc106;">Train Schedule</h4> 
+                <table id="employeeTable" class="table">
+                  <thead style="background-color: #ffc106;">
+                    <tr>
+                      <th scope="col">Train Name</th>
+                      <th scope="col">Destination</th>
+                      <th scope="col">Frequency (min)</th>
+                      <th scope="col">Next Arrival</th>
+                      <th scope="col">Minutes Away</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+        </div>
+
+    </div>
+
+
+
+      <!-- <form style="background-color: lightgray"> 
+        <div  class="form-group">
+          <label for="exampleFormControlInput1"><b>Train Name</b></label>
+          <input id="emp" type="name" class="form-control" placeholder ="Name" >
+        </div>
+        <div  class="form-group">
+          <label for="exampleFormControlInput1">Destination</label>
+          <input  id="role" type="role" class="form-control" placeholder="Where to">
+        </div>
+        <div  class="form-group">
+          <label for="exampleFormControlInput1">First Train Time</label>
+          <input id="date" type="militarytime" class="form-control" placeholder="HH:mm">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Frequency (min)</label>
+          <input  id="rate"  type="rate" class="min" >
+        </div>
+      </form>
+      <button id="submit-btn" type="button" class="btn btn-primary">Submit</button>
+    </div>-->
+  
+
+    
+
+    
+    
+
+
+
+
+
+
+  </body>
+  </html>
