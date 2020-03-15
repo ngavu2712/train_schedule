@@ -21,3 +21,8 @@ div#trainSchedule {
     width: 850px;
 }
 
+#tbody {
+    color: white;
+    background-color: blue;
+}
+
