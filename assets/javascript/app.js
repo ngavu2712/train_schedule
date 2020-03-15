@@ -47,6 +47,24 @@ $("#submit-btn").on("click" , function() {
 
 });
 
+// LISTEN for changes in value and use CALLBACK to retrieve the data 
+database.ref().on("child_added" , function(childSnapshot) {
+    console.log(childSnapshot.val());
+
+    var showNameTrain = childSnapshot.val().addTrainName;
+    var showDestination = childSnapshot.val().addDestination;
+    var showTime = childSnapshot.val().addTime;
+    var showFrequency = childSnapshot.val().addFrequency;
+
+    var newRow = $("<tr>").append(
+        $("<td>").text(showNameTrain) ,
+        $("<td>").text(showDestination) ,
+        $("<td>").text(showTime) ,
+        $("<td>").text(showFrequency)
+    );
+    // Attach table row to the table div
+    $('#trainTable > tbody').append(newRow);
+})
 
 
 
