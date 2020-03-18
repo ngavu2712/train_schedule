@@ -16,9 +16,6 @@
   <!-- SDKs for Firebase products that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
 
-  <!-- Link to Moment.js-->
-  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
-
   <!-- Adding Media Query to make the page mobile responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
@@ -30,11 +27,16 @@
 
     <!-- Link to javascript -->
     <script src="assets/javascript/app.js"></script>
+
+    <!-- Link to Moment.js should go here-->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
     
     
     <!-- Introduction-->
-<div id="firstRow" style="background-image:url(assets/images/moutainrange.jpeg); opacity: 0.8;">
-    <h1 id="orientExp">Winter Express</h1>
+<div id="firstRow" style="background-image:url(assets/images/moutainrange.jpeg); opacity: 0.9;">
+    <h1 id="orientExp">Winter Express
+        <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    </h1>
 </div>
 
 <div id="total" class="container">
@@ -65,7 +67,7 @@
             <!-- Train Time -->
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Train Time</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">First Train Time</span>
                 </div>
                     <input id="time" type="militarytime" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder ="HH:mm" >
             </div> 

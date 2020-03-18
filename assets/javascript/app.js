@@ -24,7 +24,7 @@ $("#submit-btn").on("click" , function() {
     // RETRIEVE INPUT VALUE FROM THE USER
     var trainName = $("#name").val().trim();
     var destination = $("#destination").val().trim();
-    var time = $("#time").val().trim();
+    var time = moment($("#time").val().trim(), "HH:mm").format("HH:mm");
     var frequency = $("#frequency").val().trim();
 
     //CREATE A OBJECT that contain user data 
@@ -53,14 +53,35 @@ database.ref().on("child_added" , function(childSnapshot) {
 
     var showNameTrain = childSnapshot.val().addTrainName;
     var showDestination = childSnapshot.val().addDestination;
-    var showTime = childSnapshot.val().addTime;
+    var firstTrainTime = childSnapshot.val().addTime;
+    console.log(firstTrainTime);
     var showFrequency = childSnapshot.val().addFrequency;
+    console.log (showFrequency);
+
+   
+    // Use moment Js to capture the current time 
+    var now = moment().format('HH:mm');
+    console.log(now);
+   
+    var diffM = moment().diff(moment(firstTrainTime, "HH:mm"), "m");
+    console.log(diffM);
+
+    var remainder = (diffM % showFrequency);
+    console.log (remainder);
+
+    var minuteAway = showFrequency - remainder;
+    console.log (minuteAway);
+
+
+
+
 
     var newRow = $("<tr>").append(
         $("<td>").text(showNameTrain) ,
         $("<td>").text(showDestination) ,
-        $("<td>").text(showTime) ,
-        $("<td>").text(showFrequency)
+        $("<td>").text(showFrequency) ,
+        //$("<td>").text(nextArrival) ,
+        //$("<td>").text(minuteAway)
     );
     // Attach table row to the table div
     $('#trainTable > tbody').append(newRow);

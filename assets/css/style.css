@@ -12,9 +12,10 @@ div#trainSchedule {
 }
 
 h1#orientExp {
-    font-family: 'Abril Fatface', cursive;    
-    font-size: 80px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 60px;
     color: white; 
+   
 }
 
 div#trainSchedule {
@@ -23,6 +24,6 @@ div#trainSchedule {
 
 #tbody {
     color: white;
-    background-color: blue;
+    background-color: rgb(41, 112, 219);
 }
 
