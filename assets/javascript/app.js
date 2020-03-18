@@ -55,24 +55,43 @@ database.ref().on("child_added" , function(childSnapshot) {
     var showDestination = childSnapshot.val().addDestination;
     var firstTrainTime = childSnapshot.val().addTime;
     console.log(firstTrainTime);
-    var showFrequency = childSnapshot.val().addFrequency;
+    var showFrequency = moment(childSnapshot.val().addFrequency , "mm").format("mm");
     console.log (showFrequency);
 
+    /* TEST MODEL for calculation
+    * First train of the day is 3:00Am
+    Assume train comes every 3 minutes (frequency) 
+    Assume the current time is 3:16Am
+    What time would the next train be?
+    It would be 3:18 -- 2 minutes away
+    
+    
+    SOLVED: 3:16 - 3:00 = 16 minutes
+    16 % 3 = 1
+    3 - 1 =2 minutes away
+    2 + 3:16 = 3:18 
+    */
    
     // Use moment Js to capture the current time 
     var now = moment().format('HH:mm');
     console.log(now);
    
+    //Then find the difference between current time and first train time
     var diffM = moment().diff(moment(firstTrainTime, "HH:mm"), "m");
     console.log(diffM);
 
-    var remainder = (diffM % showFrequency);
+    // Find the remainder when you divide difference in time by frequency
+    var remainder = diffM % showFrequency;
     console.log (remainder);
 
-    var minuteAway = showFrequency - remainder;
+    //Calculate minute away by minus remainder from the frequency
+    var minuteAway = moment(showFrequency ,"m").diff(moment(remainder, "m") , "m");
     console.log (minuteAway);
 
+    // Calculate next arrival by adding minutes away to the current time
+    var nextArrival = moment().add(minuteAway, "m").format("HH:mm")
 
+    console.log (nextArrival);
 
 
 
@@ -80,8 +99,8 @@ database.ref().on("child_added" , function(childSnapshot) {
         $("<td>").text(showNameTrain) ,
         $("<td>").text(showDestination) ,
         $("<td>").text(showFrequency) ,
-        //$("<td>").text(nextArrival) ,
-        //$("<td>").text(minuteAway)
+        $("<td>").text(nextArrival) ,
+        $("<td>").text(minuteAway)
     );
     // Attach table row to the table div
     $('#trainTable > tbody').append(newRow);
